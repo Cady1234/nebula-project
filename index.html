@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سديم للحلول الذكية | صُنّاع التحول الرقمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">NEBULA<span>.</span></div>
+            <nav id="main-nav">
+                <a href="#home">الرئيسية</a>
+                <a href="#about">رؤيتنا</a>
+                <a href="#services">خدماتنا</a>
+                <a href="#contact" class="nav-btn">ابدأ مشروعك</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-overlay">
+            <div class="container">
+                <h1>نصيغ المستقبل <br>بأدوات اليوم</h1>
+                <p>في <strong>سديم (NEBULA)</strong>، لا نبني مجرد مواقع، بل نصمم تجارب رقمية متكاملة تساعد الشركات على الريادة والابتكار في سوق لا يتوقف عن التطور.</p>
+                <div class="hero-btns">
+                    <a href="#services" class="btn-main">اكتشف حلولنا</a>
+                    <a href="#contact" class="btn-outline">طلب استشارة مجانية</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا الاحترافية</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>التطوير البرمجي</h3>
+                    <p>بناء منصات ويب متطورة باستخدام أحدث التقنيات لضمان السرعة والأمان.</p>
+                </div>
+                <div class="service-card">
+                    <h3>تصميم تجربة المستخدم</h3>
+                    <p>واجهات عصرية تركز على سهولة الاستخدام وجذب انتباه العميل من اللحظة الأولى.</p>
+                </div>
+                <div class="service-card">
+                    <h3>التحول الرقمي</h3>
+                    <p>أتمتة العمليات الإدارية وتحويل أعمالك التقليدية إلى منظومة رقمية ذكية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>لنبدأ رحلة النجاح</h2>
+                    <p>لديك فكرة؟ نحن نملك الأدوات التقنية لتحويلها إلى واقع. أدخل بياناتك وسيتواصل معك أحد مستشارينا خلال 24 ساعة.</p>
+                </div>
+                <form id="nebulaForm">
+                    <div class="input-row">
+                        <input type="text" id="userName" placeholder="الاسم الكامل" required>
+                        <input type="email" id="userEmail" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <select id="serviceType">
+                        <option value="web">تطوير موقع إلكتروني</option>
+                        <option value="design">تصميم واجهات UI/UX</option>
+                        <option value="consult">استشارة تقنية</option>
+                    </select>
+                    <textarea id="userMsg" placeholder="اشرح لنا عن مشروعك باختصار..." required></textarea>
+                    <button type="submit" class="btn-submit">إرسال الطلب</button>
+                    <div id="successMsg"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 سديم (NEBULA) للحلول الذكية. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
