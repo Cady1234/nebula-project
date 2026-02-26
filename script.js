@@ -1,31 +1,36 @@
-document.getElementById('nebulaForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // منع تحديث الصفحة
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
 
-    // جمع البيانات
-    const name = document.getElementById('userName').value;
-    const service = document.getElementById('serviceType').options[document.getElementById('serviceType').selectedIndex].text;
+const firebaseConfig = {
+  apiKey: "AIzaSyBt7LiztPcGhen0M7uWafq8-40QczHkusg",
+  authDomain: "nebula-project-bd823.firebaseapp.com",
+  projectId: "nebula-project-bd823",
+  storageBucket: "nebula-project-bd823.firebasestorage.app",
+  messagingSenderId: "841228632953",
+  appId: "1:841228632953:web:c8fd59226a5b4967c065a8",
+  measurementId: "G-90CXL6G5NM",
+  databaseURL: "https://nebula-project-bd823-default-rtdb.firebaseio.com/"
+};
 
-    // محاكاة إرسال البيانات (هنا يمكنك مستقبلاً ربطها بقاعدة بيانات)
-    const successBox = document.getElementById('successMsg');
-    
-    successBox.style.display = 'block';
-    successBox.innerHTML = مرحباً <strong>${name}</strong>، تم استلام طلبك لخدمة (<strong>${service}</strong>). فريقنا سيتواصل معك قريباً.;
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
-    // مسح الحقول بعد الإرسال
-    this.reset();
-    
-    // إخفاء الرسالة بعد 5 ثوانٍ
-    setTimeout(() => { successBox.style.display = 'none'; }, 5000);
-});
+const contactForm = document.querySelector('form');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameValue = contactForm.querySelector('input[type="text"]').value;
+        const emailValue = contactForm.querySelector('input[type="email"]').value;
 
-// تأثير بسيط: تغيير لون الهيدر عند التمرير
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.style.background = '#0f172a';
-        header.style.padding = '10px 0';
-    } else {
-        header.style.background = 'rgba(15, 23, 42, 0.95)';
-        header.style.padding = '15px 0';
-    }
-});
+        push(ref(database, 'contacts'), {
+            name: nameValue,
+            email: emailValue,
+            time: new Date().toLocaleString()
+        }).then(() => {
+            alert("تم إرسال بياناتك بنجاح!");
+            contactForm.reset();
+        }).catch((error) => {
+            console.error(error);
+        });
+    });
+}
